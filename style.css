@@ -175,9 +175,6 @@ body::after{
     z-index:10;
 }
 
-.rarity{right:6px}
-.price-tag{left:6px;color:#0f0;border-color:#0f0;box-shadow:0 0 8px #0f0;text-shadow:0 0 5px #0f0}
-
 .rarity-common{color:#999;border-color:#999}
 .rarity-uncommon{color:#0f0;border-color:#0f0}
 .rarity-epic{color:#c0f;border-color:#c0f}
