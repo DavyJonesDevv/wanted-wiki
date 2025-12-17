@@ -38,6 +38,14 @@ function getSortPrice(item) {
     return item.price > 0 ? item.price : 0;
 }
 
+function getRatio(item) {
+    const display = getDisplayPrice(item);
+
+    if (item.weight > 0) return display / item.weight;
+    if (display > 0) return Infinity;
+    return 0;
+}
+
 function getDisplayPrice(item) {
     return item.price > 0 ? item.price : item.pricenc;
 }
@@ -46,6 +54,19 @@ function renderValuables(sort = "high") {
     let sorted = [...valuables];
 
     sorted.sort((a, b) => {
+        if (sort === 'ratio') {
+            const ra = getRatio(a);
+            const rb = getRatio(b);
+
+            const aInf = !isFinite(ra);
+            const bInf = !isFinite(rb);
+            if (aInf && bInf) return 0;
+            if (aInf) return 1;
+            if (bInf) return -1;
+
+            return rb - ra;
+        }
+
         const pa = getSortPrice(a);
         const pb = getSortPrice(b);
 
@@ -63,6 +84,7 @@ function renderValuables(sort = "high") {
         <div class="sort-buttons">
             <span class="sort-btn ${sort === 'high' ? 'active' : ''}" onclick="sortValuables('high')">Price High to Low</span>
             <span class="sort-btn ${sort === 'low' ? 'active' : ''}" onclick="sortValuables('low')">Price Low to High</span>
+            <span class="sort-btn ${sort === 'ratio' ? 'active' : ''}" onclick="sortValuables('ratio')">Best value (Price/kg)</span>
         </div>
         <div class="card-grid">
     `;
@@ -71,6 +93,18 @@ function renderValuables(sort = "high") {
         const slug = v.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         const safeRarity = v.rarity.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
+        const ratio = getRatio(v);
+        let ratioDisplay = null;
+        if (isFinite(ratio) && ratio > 0) {
+              const isInteger = Math.abs(ratio - Math.round(ratio)) < 1e-9;
+              const fmt = isInteger
+                 ? { minimumFractionDigits: 0, maximumFractionDigits: 0 }
+                 : { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+              ratioDisplay = `$${ratio.toLocaleString(undefined, fmt)}`;
+        }
+
+        const ratioHtml = ratioDisplay ? `<p><strong>Price/kg:</strong> ${ratioDisplay}</p>` : '';
+
         html += `
             <div class="card">
                 <img src="images/${slug}.jpg" alt="${v.name}" style="width:100%;height:auto;margin-bottom:15px;border-radius:4px;box-shadow:0 0 10px rgba(255,255,255,0.2);">
@@ -78,6 +112,7 @@ function renderValuables(sort = "high") {
                 <h3>${v.name}</h3>
                 <p><strong>Price:</strong> $${getDisplayPrice(v).toLocaleString()}</p>
                 <p><strong>Weight:</strong> ${v.weight} kg</p>
+                ${ratioHtml}
             </div>`;
     });
 
