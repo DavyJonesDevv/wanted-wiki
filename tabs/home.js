@@ -196,7 +196,7 @@ function renderHome() {
                 await typeWrite(`uptime ${seconds}s`);
             },
             async whoami() {
-                await typeWrite(`ghost@node-${sessionId}`);
+                await typeWrite(`ruby@node-${sessionId}`);
             },
             async date() {
                 const now = new Date();
@@ -225,7 +225,7 @@ function renderHome() {
             },
             sudo() {
                 sudoMode = true;
-                instantBlock("[sudo] password for ghost:", "#ffffff");
+                instantBlock("[sudo] password for ruby:", "#ffffff");
             },
             async sshnuke() {
                 await progressBar("deploying payload");
@@ -252,7 +252,7 @@ function renderHome() {
         };
 
         const updatePrompt = () => {
-            document.querySelector(".prompt-span").textContent = `ghost@wanted:${cwd}$`;
+            document.querySelector(".prompt-span").textContent = `ruby@wanted:${cwd}$`;
         };
 
         input.addEventListener("keydown", async (e) => {
@@ -289,7 +289,7 @@ function renderHome() {
             commandHistory.push(command);
             historyIndex = commandHistory.length;
 
-            instantBlock(`ghost@wanted:${cwd}$ ${command}`, "#ffffff");
+            instantBlock(`ruby@wanted:${cwd}$ ${command}`, "#ffffff");
 
             if (sudoMode) {
                 sudoMode = false;
@@ -339,7 +339,7 @@ function renderHome() {
                 padding-right: 8px;
             "></div>
             <div style="display: flex; align-items: center;">
-                <span class="prompt-span" style="text-shadow: 0 0 8px white; margin-right: 8px; color: white;">ghost@wanted:/secure$</span>
+                <span class="prompt-span" style="text-shadow: 0 0 8px white; margin-right: 8px; color: white;">ruby@wanted:/secure$</span>
                 <input id="terminal-input" autocomplete="off" spellcheck="false" style="
                     background: transparent;
                     border: none;
@@ -354,3 +354,4 @@ function renderHome() {
         </div>
     `;
 }
+
