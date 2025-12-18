@@ -155,7 +155,7 @@ function renderHome() {
 
             setTimeout(() => {
                 const finalSound = new Audio("sounds/final.mp3");
-                finalSound.volume = 0.8;
+                finalSound.volume = 1;
                 finalSound.play().catch(() => {});
 
                 document.body.innerHTML = `
@@ -176,12 +176,11 @@ function renderHome() {
                         text-shadow: 0 0 8px #39ff14;
                     ">
                         <div style="margin-bottom: 40px; opacity: 0.7;">rebooting system...</div>
-                        <div style="color: #ff3333; margin-bottom: 30px; font-size: 1.6rem;">BOOTLOADER ERROR</div>
                         <div style="color: #ff3333; margin-bottom: 20px;">No bootable device found</div>
                         <div style="opacity: 0.5; font-size: 1rem;">Insert boot media and restart</div>
                     </div>
                 `;
-            }, 2100);
+            }, 5000);
         };
 
         const commands = {
@@ -334,7 +333,7 @@ function renderHome() {
                 opacity: 0.9;
                 color: white;
             ">
-                WANTED WIKI TERMINAL v4.7 — MEEPTECH CO.
+                WNTD. WIKI TERMINAL v4.7 — MEEPTECH CO.
             </div>
             <div id="terminal-history" style="
                 max-height: 460px;
@@ -358,3 +357,4 @@ function renderHome() {
         </div>
     `;
 }
+
