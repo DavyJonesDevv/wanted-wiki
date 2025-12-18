@@ -173,24 +173,12 @@ function renderHome() {
                         text-align: center;
                         padding: 40px;
                         box-sizing: border-box;
-                        animation: glitch 1.5s infinite;
+                        text-shadow: 0 0 8px #39ff14;
                     ">
-                        <div style="opacity: 0.6; margin-bottom: 40px;">[ CONNECTION LOST ]</div>
-                        <div style="margin-bottom: 30px;">attempting reconnection...</div>
-                        <div style="color: #ff3333; margin-bottom: 20px; font-size: 1.5rem;">FAILED</div>
-                        <div style="opacity: 0.4; font-size: 1rem;">signal terminated</div>
-                        <style>
-                        @keyframes glitch {
-                            0% { text-shadow: 0 0 10px #39ff14; clip: rect(0, 9999px, 0, 0); }
-                            5% { clip: rect(20px, 9999px, 40px, 0); text-shadow: -2px 0 #ff3333; }
-                            10% { clip: rect(80px, 9999px, 100px, 0); text-shadow: 2px 0 #39ff14; }
-                            15% { clip: rect(10px, 9999px, 30px, 0); }
-                            20% { clip: rect(50px, 9999px, 70px, 0); text-shadow: -2px 0 #ff3333; }
-                            25% { clip: rect(90px, 9999px, 110px, 0); }
-                            30% { text-shadow: 0 0 10px #39ff14; }
-                            100% { text-shadow: 0 0 10px #39ff14; }
-                        }
-                        </style>
+                        <div style="margin-bottom: 40px; opacity: 0.7;">rebooting system...</div>
+                        <div style="color: #ff3333; margin-bottom: 30px; font-size: 1.6rem;">BOOTLOADER ERROR</div>
+                        <div style="color: #ff3333; margin-bottom: 20px;">No bootable device found</div>
+                        <div style="opacity: 0.5; font-size: 1rem;">Insert boot media and restart</div>
                     </div>
                 `;
             }, 2100);
