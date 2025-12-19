@@ -35,20 +35,6 @@
             transition: height 0.8s ease-out, opacity 1.2s ease-out;
         }
 
-        .garage-intro.open {
-            opacity: 0;
-            pointer-events: none;
-            transition-delay: .7s;
-        }
-
-        .garage-door-mover {
-            transition: transform 1.5s cubic-bezier(0.68, -0.15, 0.27, 1.15) !important;
-        }
-
-        .garage-intro.open .garage-door-mover {
-            animation: garage-shudder 1.5s ease-out;
-        }
-
         .door-panel {
             filter: brightness(0.8) contrast(1.2);
         }
@@ -153,11 +139,6 @@
             animation: status-blink 0.5s infinite alternate;
         }
 
-        .garage-intro.open .biometric-terminal,
-        .garage-intro.open .click-prompt {
-            display: none;
-        }
-
         .click-prompt {
             position: absolute;
             bottom: 40px;
@@ -189,21 +170,12 @@
             0%, 100% { opacity: 0.8; }
             50% { opacity: 0.1; }
         }
-
-        @keyframes garage-shudder {
-            0% { transform: translateY(0); }
-            2% { transform: translateY(-4px); }
-            4% { transform: translateY(0); }
-            6% { transform: translateY(-2px); }
-            8% { transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
     <div class="stripes"></div>
     <div class="scanlines"></div>
     <div class="static"></div>
-    <div class="dust"></div>
 
     <div id="garage-intro" class="garage-intro">
         <div class="biometric-terminal">
@@ -241,12 +213,11 @@
             <div class="tab" data-page="vehicles">VEHICLEs</div>
             <div class="tab" data-page="locations">LOCATIONs</div>
 
-<!--            <div class="tab" data-page="npcs">NPCs</div> -->
-<!--            <div class="tab" data-page="missions">MISSIONs</div> -->
+            <div class="tab" data-page="npcs">NPCs</div>
+            <div class="tab" data-page="missions">MISSIONs</div>
 
             </nav>
         <div class="volume-control">
-            <label for="bgm-volume">ᯓ‎</label>
             <input type="range" id="bgm-volume" min="0" max="1" step="0.01" value="0.4">
         </div>
     </header>
@@ -272,18 +243,10 @@
     <script defer src="tabs/vehicles.js"></script>
     <script defer src="tabs/locations.js"></script>
 
-<!--    <script defer src="tabs/npcs.js"></script> -->
-<!--    <script defer src="tabs/missions.js"></script> -->
+    <script defer src="tabs/npcs.js"></script>
+    <script defer src="tabs/missions.js"></script>
 
     <script defer src="tabs/home.js"></script>
     <script defer src="script.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelector('.garage-door-mover')?.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-        });
-    </script>
 </body>
 </html>

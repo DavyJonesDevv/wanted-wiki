@@ -5,13 +5,11 @@
     --border:#444;
     --glow:#fff;
 }
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 html,body{
     height:100%;
     background:var(--bg);
@@ -19,7 +17,6 @@ html,body{
     font-family:'Courier New',monospace;
     overflow-x: hidden;
 }
-
 .stripes,
 .scanlines,
 .static{
@@ -27,7 +24,6 @@ html,body{
     inset:0;
     pointer-events:none;
 }
-
 .stripes{
     z-index:1;
     background:
@@ -35,13 +31,11 @@ html,body{
         repeating-linear-gradient(-45deg,transparent 0 40px,#222 40px 80px);
     opacity:.3;
 }
-
 .scanlines{
     z-index:30;
     background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.15) 2px 4px);
     animation:scan 6s linear infinite;
 }
-
 .static{
     z-index:32;
     background:url('https://assets.codepen.io/721952/static.png') repeat;
@@ -49,7 +43,6 @@ html,body{
     animation:static-burst .1s infinite;
     opacity:0;
 }
-
 body::before,
 body::after{
     content:"";
@@ -60,16 +53,13 @@ body::after{
     mix-blend-mode:screen;
     animation:policeFlash 8s infinite;
 }
-
 body::before{
     background:radial-gradient(circle at 20% 50%,rgba(255,0,0,.5),transparent 40%);
 }
-
 body::after{
     background:radial-gradient(circle at 80% 50%,rgba(0,100,255,.5),transparent 40%);
     animation-delay:4s;
 }
-
 .fixed-header{
     position:fixed;
     top:0;
@@ -84,9 +74,8 @@ body::after{
     border-bottom:1px solid #333;
     box-shadow:0 1px 4px rgba(0,0,0,.4);
 }
-
 .neon-title{
-    font-size:clamp(1.5rem, 6vw, 3.5rem); 
+    font-size:clamp(1.5rem, 6vw, 3.5rem);
     letter-spacing:clamp(4px, 2vw, 16px);
     font-weight:bold;
     text-transform:uppercase;
@@ -99,7 +88,6 @@ body::after{
     text-shadow:0 0 10px var(--glow),0 0 20px var(--glow),0 0 40px var(--glow),0 0 80px var(--glow);
     text-align: center;
 }
-
 .top-tabs{
     display:flex;
     flex-wrap:wrap;
@@ -110,7 +98,6 @@ body::after{
     background:#111;
     border:2px solid var(--fg);
 }
-
 .tab{
     padding:6px 12px;
     background:#000;
@@ -121,33 +108,28 @@ body::after{
     cursor:pointer;
     transition:.2s;
 }
-
 .tab:hover,
 .tab.active{
     background:var(--fg);
     color:#000;
     box-shadow:0 0 20px var(--fg);
 }
-
 .page-wrapper{
     min-height:100vh;
     padding:180px 0 60px;
     display:flex;
     justify-content:center;
 }
-
 .content{
     width:90%;
     max-width:1400px;
 }
-
 .card-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
     gap:12px;
     margin-top:10px;
 }
-
 .card{
     position:relative;
     padding:10px;
@@ -156,13 +138,11 @@ body::after{
     box-shadow:0 0 8px rgba(255,255,255,.08);
     transition:.3s;
 }
-
 .card:hover{
     transform:translateY(-8px);
     border-color:var(--fg);
     box-shadow:0 0 40px rgba(255,255,255,.6);
 }
-
 .card:hover::after{
     content:"";
     position:absolute;
@@ -171,7 +151,6 @@ body::after{
     background:radial-gradient(circle,rgba(255,255,255,.2),transparent 60%);
     animation:pulse 1s infinite;
 }
-
 .rarity,
 .price-tag{
     position:absolute;
@@ -184,25 +163,20 @@ body::after{
     border-radius:4px;
     z-index:10;
 }
-
 .rarity{right:6px}
 .price-tag{left:6px;color:#0f0;border-color:#0f0;box-shadow:0 0 8px #0f0;text-shadow:0 0 5px #0f0}
-
 .rarity-common{color:#999;border-color:#999}
 .rarity-uncommon{color:#0f0;border-color:#0f0;text-shadow:0 0 10px #0f0}
 .rarity-epic{color:#c0f;border-color:#c0f}
 .rarity-legendary{color:#ff0;border-color:#ff0;text-shadow:0 0 15px #ff0}
 .rarity-mythic{color:#f00;border-color:#f00;text-shadow:0 0 10px #f00}
-
 .rarity-easy{color:#0f0;border-color:#0f0;text-shadow:0 0 10px #0f0}
 .rarity-medium{color:#ff0;border-color:#ff0;text-shadow:0 0 15px #ff0}
 .rarity-hard{color:#f00;border-color:#f00;text-shadow:0 0 10px #f00}
-
 .rarity-neutral{color:#0f0;border-color:#0f0;text-shadow:0 0 10px #0f0}
 .rarity-police{color:#00f;border-color:#00f;text-shadow:0 0 10px #00f}
 .rarity-criminal{color:#f00;border-color:#f00;text-shadow:0 0 10px #f00}
 .rarity-christmas-limited{color:#0f0;border-color:#f00}
-
 h2{
     margin:20px 0;
     text-align:center;
@@ -210,9 +184,7 @@ h2{
     letter-spacing:clamp(4px, 2vw, 10px);
     text-shadow:0 0 10px var(--fg);
 }
-
 .sort-buttons{text-align:center;margin:15px 0}
-
 .sort-btn{
     display:inline-block;
     margin:0 4px 6px;
@@ -223,22 +195,19 @@ h2{
     cursor:pointer;
     transition:.2s;
 }
-
 .sort-btn:hover,
 .sort-btn.active{
     background:#333;
     border-color:var(--fg);
 }
-
 .loading{
     padding:60px 0;
     text-align:center;
     font-size:1.8rem;
     animation:loading-glitch 1s infinite;
 }
-
 .volume-control {
-    --fg: #ffffff; 
+    --fg: #ffffff;
     position: fixed;
     top: 12px;
     left: 12px;
@@ -253,7 +222,6 @@ h2{
     overflow: hidden;
     transition: width .3s cubic-bezier(0.4,0,0.2,1), border-color .3s;
 }
-
 .volume-control::before {
     content: '♪';
     flex: 0 0 36px;
@@ -266,14 +234,12 @@ h2{
     text-shadow: 0 0 5px #fff;
     pointer-events: none;
 }
-
 .volume-control:hover,
 .volume-control:focus-within {
     width: 200px;
     border-color: #fff !important;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-
 .volume-control input[type=range] {
     flex: 1 1 auto;
     width: 100%;
@@ -286,17 +252,15 @@ h2{
     transition: opacity .15s;
     margin: 0 10px;
 }
-
 .volume-control input[type=range]::-webkit-slider-thumb {
     appearance: none;
     height: 14px;
     width: 14px;
     border-radius: 50%;
-    background: #ffffff; 
+    background: #ffffff;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
-
 .volume-control input[type=range]::-moz-range-thumb {
     height: 14px;
     width: 14px;
@@ -305,12 +269,10 @@ h2{
     cursor: pointer;
     border: none;
 }
-
 .volume-control:hover input[type=range],
 .volume-control:focus-within input[type=range] {
     opacity: 1;
 }
-
 .garage-intro {
     position: fixed;
     inset: 0;
@@ -322,11 +284,12 @@ h2{
     background: #000;
     overflow: hidden;
     cursor: default;
-    transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out .7s;
 }
-
-.garage-intro.open{opacity:0;pointer-events:none;transition-delay:.7s}
-
+.garage-intro.open{
+    opacity:0;
+    pointer-events:none;
+}
 .garage-door-mover {
     position: absolute;
     inset: 0;
@@ -334,13 +297,10 @@ h2{
     transition: transform 1.5s cubic-bezier(0.68, -0.15, 0.27, 1.15);
     cursor: default;
 }
-
 .garage-intro.open .garage-door-mover{
     transform:translateY(-100vh);
 }
-
 .garage-door{position:absolute;inset:0;display:flex;flex-direction:column}
-
 .door-panel{
     flex:1;
     background:#333;
@@ -352,7 +312,6 @@ h2{
     box-shadow:inset 0 0 5px rgba(0,0,0,0.5);
     position: relative;
 }
-
 .bottom-corner-link{
     position:fixed;
     bottom:8px;
@@ -367,7 +326,71 @@ h2{
     box-shadow:0 0 5px rgba(255,255,255,.1);
     transition:.2s;
 }
-
+.terminal {
+    width: 90%;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--panel);
+    border: 2px solid var(--fg);
+    box-shadow: 0 0 25px rgba(255,255,255,.5);
+    position: relative;
+    overflow: hidden;
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.3rem;
+    letter-spacing: .25em;
+    text-shadow: 0 0 10px var(--fg);
+    opacity: .9;
+}
+.output {
+    color: #cccccc;
+    margin: 12px 0;
+}
+.history {
+    margin-bottom: 20px;
+}
+.prompt-line {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+}
+.prompt {
+    color: var(--fg);
+    margin-right: 10px;
+    text-shadow: 0 0 8px var(--fg);
+    flex-shrink: 0;
+}
+.input {
+    background: transparent;
+    border: none;
+    color: var(--fg);
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    flex: 1;
+    caret-color: var(--fg);
+}
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--fg);
+    text-shadow: 0 0 20px var(--fg);
+    letter-spacing: .4em;
+    margin: 30px 0;
+    text-align: center;
+}
+.message {
+    color: #bbbbbb;
+    text-align: center;
+    margin: 30px 0;
+    line-height: 2.2;
+    font-size: 1.3rem;
+}
 @keyframes policeFlash{0%{opacity:0}10%{opacity:1}25%,50%,100%{opacity:0}}
 @keyframes scan{to{transform:translateY(8px)}}
 @keyframes static-burst{50%{opacity:.1}}
@@ -380,11 +403,9 @@ h2{
     80%{opacity:.6;transform:translate(2px,2px)}
     100%{opacity:0;transform:none}
 }
-
 @media(max-width:768px){
     .page-wrapper{padding-top:160px}
 }
-
 @media(max-width:500px){
-    .page-wrapper{padding-top:220px} 
+    .page-wrapper{padding-top:220px}
 }

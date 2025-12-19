@@ -45,9 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
        
         setTimeout(() => {
-            setTimeout(() => {
-                if (garageIntro) garageIntro.remove();
-            }, 500);
+            if (garageIntro) garageIntro.remove();
         }, 2800);
         document.querySelector('.tab[data-page="home"]').classList.add("active");
         loadPage("home");
