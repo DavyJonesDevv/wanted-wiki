@@ -266,7 +266,8 @@ function renderHome() {
                 return;
             }
             const [cmd, ...args] = command.split(" ");
-            const handler = commands[cmd];
+            const lowerCmd = cmd.toLowerCase();
+            const handler = commands[lowerCmd];
             if (handler) {
                 await handler(args);
             } else {
