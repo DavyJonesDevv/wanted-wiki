@@ -45,7 +45,7 @@ const missions = [
         desc: "Let's get right into it. Set up the gun, test it out, and come back: Bring me a modded AK-47 with Mono Suppressor, Tactical Laser, and Horizontal Foregrip.", 
         req: ["Criminal/Syndicate team"], 
         how: "Mod the AK-47 with Mono Suppressor, Tactical Laser, and Horizontal Foregrip.", 
-        difficulty: "Hard", 
+        difficulty: "Medium", 
         reward: "$60,000" 
     },
 
@@ -57,6 +57,16 @@ const missions = [
         how: "Mod the Glock 18c with Pistol Suppressor, Reflex Sight and Glock Stock", 
         difficulty: "Hard", 
         reward: "$75,000" 
+    },
+
+    { 
+        title: "Artisan 6", 
+        location: "Criminal Outpost – Talk to Erik", 
+        desc: "Let's get right into it. Set up the gun, test it out, and come back: Bring me a modded M4A1 with ACOG, Horizontal Foregrip, and Tactical Laser.", 
+        req: ["Criminal/Syndicate team"], 
+        how: "Mod the M4A1 with ACOG, Horizontal Foregrip, and Tactical Laser", 
+        difficulty: "Hard", 
+        reward: "$85,000" 
     },
 
 
